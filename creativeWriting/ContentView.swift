@@ -14,7 +14,7 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(samples.contents, id: \.self) {
-                    note in NavigationLink(destination:  NoteView(note)/*EmptyView()*/) {
+                    note in NavigationLink(destination: NoteViewingView(note)) {
                         NoteListView(note)
                     }
                     .padding([.bottom, .top], 5)
@@ -31,3 +31,6 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+

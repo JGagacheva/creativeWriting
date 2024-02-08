@@ -3,7 +3,7 @@
 //  creativeWriting
 //
 //  Created by Jana Gagacheva on 2/6/24.
-// MARK: The view that is navigated to from the list to look at the specific note.
+// 
 
 import SwiftUI
 
@@ -11,7 +11,7 @@ struct NoteView: View {
     @EnvironmentObject var samples: SampleNote
     private var note: Note
     @State var inputTitle: String = ""
-    @State var inputBody: String = "Tell me more!"
+    @State var inputBody: String = ""
     @State private var bodyPlaceholder: Bool = true
     
     // attributes to aid in saving a note locally

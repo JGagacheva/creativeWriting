@@ -24,5 +24,5 @@ class SampleNote: ObservableObject {
     ]
     
     @Published var note = Note()
-//    @Published var displayingNote = true
+    @Published var displayingNote = false
 }
