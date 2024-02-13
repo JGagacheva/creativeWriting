@@ -8,7 +8,7 @@
 import Foundation
 
 class SampleNote: ObservableObject {
-    let contents = [
+    var contents = [
         Note(title: "What are you thinking about?",
              body: "Tell me more."),
         Note(title: "Tell me about exploring the impact of emerging technologies, such as artificial intelligence and virtual reality, on education?",

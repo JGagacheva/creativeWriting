@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var samples = SampleNote()
+    @State private var showingSheet = false
     
     var body: some View {
         NavigationView {
@@ -21,7 +22,18 @@ struct ContentView: View {
                 }
             }
             .navigationBarTitle("Journal Logs")
-            .listStyle(.plain)
+            .listStyle(.inset)
+            .toolbar {
+                Button {
+                    showingSheet = true
+                    print("this button will prodice a new note.")
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
+            .sheet(isPresented: $showingSheet, content: {
+                NavigationStack { NoteView() }
+            })
         }
     }
 }

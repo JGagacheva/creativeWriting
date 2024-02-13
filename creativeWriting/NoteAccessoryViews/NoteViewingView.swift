@@ -27,6 +27,13 @@ struct NoteViewingView: View {
             Spacer()
         }
         .padding(.top, -40)
+        .toolbar {
+            Button {
+                print("This button will open editing view for the note.")
+            } label: {
+                Text("Edit")
+            }
+        }
     }
 }
 
