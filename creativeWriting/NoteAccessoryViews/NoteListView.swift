@@ -24,7 +24,6 @@ struct NoteListView: View {
                 .font(.caption)
                 .foregroundColor(.gray)
         }
-        
     }
 }
 

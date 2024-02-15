@@ -10,19 +10,21 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var samples = SampleNote()
     @State private var showingSheet = false
-    
+        
     var body: some View {
         NavigationView {
             List {
                 ForEach(samples.contents, id: \.self) {
                     note in NavigationLink(destination: NoteViewingView(note)) {
-                        NoteListView(note)
+                            NoteListView(note)
                     }
                     .padding([.bottom, .top], 5)
                 }
+                .listRowSeparator(.hidden)
             }
             .navigationBarTitle("Journal Logs")
             .listStyle(.inset)
+            
             .toolbar {
                 Button {
                     showingSheet = true

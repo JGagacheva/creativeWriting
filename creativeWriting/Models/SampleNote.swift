@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftData
 
 class SampleNote: ObservableObject {
     var contents = [
