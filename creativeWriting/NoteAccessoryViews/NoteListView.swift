@@ -28,7 +28,7 @@ struct NoteListView: View {
                 .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
             Text(note.timeStamp ?? .now, formatter: dateFormatter)
                 .font(.caption)
-                .foregroundColor(.gray)
+                .foregroundColor(.black.opacity(0.85))
         }
     }
 }

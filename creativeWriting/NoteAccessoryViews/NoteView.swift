@@ -11,8 +11,8 @@ struct NoteView: View {
     @State private var inputTitle: String = ""
     @State private var inputBody: String = "Tell me more..."
     @State private var bodyPlaceholder: Bool = true
-    @EnvironmentObject var samples: SampleNote
-    
+//    @EnvironmentObject var samples: SampleNote
+    @Environment(\.managedObjectContext) private var viewContext
     
     var body: some View {
         VStack {
@@ -54,12 +54,20 @@ struct NoteView: View {
             }
         }
     }
-    // MARK: Will come back to this to store the note.
     private func saveNote() {
-        samples.contents.append(Note2(title: inputTitle,
-                                     body: inputBody,
-                                     dateCreated: Date.now
-                                     ))
+        withAnimation {
+            let newNote = Note(context: viewContext)
+            newNote.title = inputTitle
+            newNote.body = inputBody
+            newNote.timeStamp = .now
+
+            do {
+                try viewContext.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
     }
 }
 

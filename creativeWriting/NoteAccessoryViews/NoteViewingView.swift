@@ -21,7 +21,7 @@ struct NoteViewingView: View {
     }
     
     var body: some View {
-        ScrollView { 
+        ScrollView {
             VStack {
                 Text(note.title ?? "")
                     .font(.title)

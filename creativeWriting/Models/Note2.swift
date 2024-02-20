@@ -6,9 +6,7 @@
 //
 
 import Foundation
-import SwiftData
 
-//@Model  -- needs to be a class
 struct Note2: Hashable {
     var title: String
     var body: String
