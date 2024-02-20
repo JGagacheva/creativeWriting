@@ -94,6 +94,7 @@
 			children = (
 				A4D827662B72DFB800F160EE /* Note2.swift */,
 				A4D827682B72E03E00F160EE /* SampleNote.swift */,
+				A42492142B84290C009FC492 /* Note+Extension.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -134,11 +135,11 @@
 				A4D8273C2B72C1CB00F160EE /* creativeWritingApp.swift */,
 				A4CEB7852B7AF5D700E0240C /* Models */,
 				A4D8273E2B72C1CB00F160EE /* ContentView.swift */,
+				A4CEB7852B7AF5D700E0240C /* Models */,
 				A4CEB7872B7AF78700E0240C /* NoteAccessoryViews */,
 				A4D827402B72C1CC00F160EE /* Assets.xcassets */,
 				A424920F2B84259A009FC492 /* creativeWriting.xcdatamodeld */,
 				A42492122B842771009FC492 /* Persistence.swift */,
-				A42492142B84290C009FC492 /* Note+Extension.swift */,
 				A48947F42B842D82006BA518 /* FetchedObjects.swift */,
 				A4D827422B72C1CC00F160EE /* Preview Content */,
 			);

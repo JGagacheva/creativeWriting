@@ -8,23 +8,31 @@
 import SwiftUI
 
 struct NoteViewingView: View {
-    private var note: Note2
+//    private var note: Note2
     
-    init(_ note: Note2) {
+//    init(_ note: Note2) {
+//        self.note = note
+//    }
+    
+    private var note: Note
+    
+    init(note: Note) {
         self.note = note
     }
     
     var body: some View {
-        VStack {
-            Text(note.title)
-                .font(.title)
-                .fontWeight(.bold)
-                .padding([.bottom, .leading, .trailing], 10)
-            Text(note.body)
-                .font(.body)
-                .lineSpacing(10)
-                .padding(.all)
-            Spacer()
+        ScrollView { 
+            VStack {
+                Text(note.title ?? "")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .padding([.bottom, .leading, .trailing], 20)
+                Text(note.body ?? "")
+                    .font(.body)
+                    .lineSpacing(10)
+                    .padding(.all, 20)
+                Spacer()
+            }
         }
         .padding(.top, -40)
         .toolbar {
@@ -41,10 +49,11 @@ struct NoteViewingView: View {
 #Preview {
     NoteViewingView()
 }
-*/
+
 struct NoteViewingView_Previews: PreviewProvider {
   static var previews: some View {
-      let sample = Note2(title: "In a world where emotions manifest physically, a young girl discovers she has the ability to manipulate these emotions.", body: "A young girl discovers she has the ability to manipulate these emotions. However, her power comes with a price: every time she uses it, she loses a part of her own emotional capacity. Write a story exploring her journey as she grapples with the consequences of her power and struggles to find balance between helping others and preserving her own humanity.", dateCreated: Date.now)
-      NoteViewingView(sample)
+      let sample = Note
+      NoteViewingView(note: note)
   }
 }
+*/
