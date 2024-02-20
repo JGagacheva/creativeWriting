@@ -38,7 +38,6 @@ struct NoteView: View {
             
             Spacer()
             Button(action: {
-                // TODO: Call save function
                 saveNote()
                 print("The Save button has been pressed.")
             }, label: {

@@ -19,6 +19,7 @@ struct NoteViewingView: View {
     init(note: Note) {
         self.note = note
     }
+    @State private var edit: Int? = 0
     
     var body: some View {
         ScrollView {

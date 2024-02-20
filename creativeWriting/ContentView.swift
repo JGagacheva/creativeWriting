@@ -11,10 +11,16 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State private var showingSheet = false
     
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath:
+                                                        \Note.timeStamp,
+                                                     ascending: false)],
+                  animation: .default)
+    private var notes: FetchedResults<Note>
+    
     var body: some View {
         NavigationView {
-            FetchedObjects(sortDescriptors: customSortDescriptor()) {
-                (notes: [Note]) in
+//            FetchedObjects(sortDescriptors: customSortDescriptor()) {
+//                (notes: [Note]) in
                 List {
                     ForEach(notes, id: \.self) {
                         note in
@@ -23,8 +29,9 @@ struct ContentView: View {
                         }
 //                        .listRowBackground(gradient)
                         .listRowSeparator(.hidden)
-                    }
+                    }.onDelete(perform: deleteNote)
                 }
+            
                 .navigationTitle("Journal Logs")
 //                .background(gradient)
                 .scrollContentBackground(.hidden)
@@ -40,12 +47,22 @@ struct ContentView: View {
                 .sheet(isPresented: $showingSheet, content: {
                     NavigationStack { NoteView() }
                 })
-            }
+//            }
         }
     }
-    func customSortDescriptor() -> [NSSortDescriptor] {
-        return [NSSortDescriptor(keyPath: \Note.timeStamp, ascending: false)]
-
+    private func deleteNote(offsets: IndexSet) {
+        withAnimation {
+            offsets.map {
+                notes[$0]
+            }
+            .forEach(viewContext.delete)
+            do {
+                try viewContext.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo).")
+            }
+        }
     }
 }
 
