@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct NoteViewingView: View {
-    private var note: Note
+    private var note: Note2
     
-    init(_ note: Note) {
+    init(_ note: Note2) {
         self.note = note
     }
     
@@ -44,7 +44,7 @@ struct NoteViewingView: View {
 */
 struct NoteViewingView_Previews: PreviewProvider {
   static var previews: some View {
-      let sample = Note(title: "In a world where emotions manifest physically, a young girl discovers she has the ability to manipulate these emotions.", body: "A young girl discovers she has the ability to manipulate these emotions. However, her power comes with a price: every time she uses it, she loses a part of her own emotional capacity. Write a story exploring her journey as she grapples with the consequences of her power and struggles to find balance between helping others and preserving her own humanity.", dateCreated: Date.now)
+      let sample = Note2(title: "In a world where emotions manifest physically, a young girl discovers she has the ability to manipulate these emotions.", body: "A young girl discovers she has the ability to manipulate these emotions. However, her power comes with a price: every time she uses it, she loses a part of her own emotional capacity. Write a story exploring her journey as she grapples with the consequences of her power and struggles to find balance between helping others and preserving her own humanity.", dateCreated: Date.now)
       NoteViewingView(sample)
   }
 }

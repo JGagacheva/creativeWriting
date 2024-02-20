@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A42492112B84259A009FC492 /* creativeWriting.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A424920F2B84259A009FC492 /* creativeWriting.xcdatamodeld */; };
+		A42492132B842771009FC492 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42492122B842771009FC492 /* Persistence.swift */; };
+		A42492152B84290C009FC492 /* Note+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42492142B84290C009FC492 /* Note+Extension.swift */; };
+		A48947F52B842D82006BA518 /* FetchedObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48947F42B842D82006BA518 /* FetchedObjects.swift */; };
 		A4C78D9C2B74427200F842D6 /* NoteViewingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C78D9B2B74427200F842D6 /* NoteViewingView.swift */; };
 		A4D8273D2B72C1CB00F160EE /* creativeWritingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8273C2B72C1CB00F160EE /* creativeWritingApp.swift */; };
 		A4D8273F2B72C1CB00F160EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8273E2B72C1CB00F160EE /* ContentView.swift */; };
@@ -15,7 +19,7 @@
 		A4D8274E2B72C1CC00F160EE /* creativeWritingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8274D2B72C1CC00F160EE /* creativeWritingTests.swift */; };
 		A4D827582B72C1CC00F160EE /* creativeWritingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D827572B72C1CC00F160EE /* creativeWritingUITests.swift */; };
 		A4D8275A2B72C1CC00F160EE /* creativeWritingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D827592B72C1CC00F160EE /* creativeWritingUITestsLaunchTests.swift */; };
-		A4D827672B72DFB800F160EE /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D827662B72DFB800F160EE /* Note.swift */; };
+		A4D827672B72DFB800F160EE /* Note2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D827662B72DFB800F160EE /* Note2.swift */; };
 		A4D827692B72E03E00F160EE /* SampleNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D827682B72E03E00F160EE /* SampleNote.swift */; };
 		A4D8276B2B72E08500F160EE /* NoteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8276A2B72E08500F160EE /* NoteListView.swift */; };
 		A4D8276D2B72FCEC00F160EE /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8276C2B72FCEC00F160EE /* NoteView.swift */; };
@@ -39,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A42492102B84259A009FC492 /* creativeWriting.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = creativeWriting.xcdatamodel; sourceTree = "<group>"; };
+		A42492122B842771009FC492 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		A42492142B84290C009FC492 /* Note+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+Extension.swift"; sourceTree = "<group>"; };
+		A48947F42B842D82006BA518 /* FetchedObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedObjects.swift; sourceTree = "<group>"; };
 		A4C78D9B2B74427200F842D6 /* NoteViewingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewingView.swift; sourceTree = "<group>"; };
 		A4D827392B72C1CB00F160EE /* creativeWriting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = creativeWriting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D8273C2B72C1CB00F160EE /* creativeWritingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = creativeWritingApp.swift; sourceTree = "<group>"; };
@@ -50,7 +58,7 @@
 		A4D827532B72C1CC00F160EE /* creativeWritingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = creativeWritingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D827572B72C1CC00F160EE /* creativeWritingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = creativeWritingUITests.swift; sourceTree = "<group>"; };
 		A4D827592B72C1CC00F160EE /* creativeWritingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = creativeWritingUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		A4D827662B72DFB800F160EE /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		A4D827662B72DFB800F160EE /* Note2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note2.swift; sourceTree = "<group>"; };
 		A4D827682B72E03E00F160EE /* SampleNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleNote.swift; sourceTree = "<group>"; };
 		A4D8276A2B72E08500F160EE /* NoteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListView.swift; sourceTree = "<group>"; };
 		A4D8276C2B72FCEC00F160EE /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
@@ -84,7 +92,7 @@
 		A4CEB7852B7AF5D700E0240C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A4D827662B72DFB800F160EE /* Note.swift */,
+				A4D827662B72DFB800F160EE /* Note2.swift */,
 				A4D827682B72E03E00F160EE /* SampleNote.swift */,
 			);
 			path = Models;
@@ -128,6 +136,10 @@
 				A4D8273E2B72C1CB00F160EE /* ContentView.swift */,
 				A4CEB7872B7AF78700E0240C /* NoteAccessoryViews */,
 				A4D827402B72C1CC00F160EE /* Assets.xcassets */,
+				A424920F2B84259A009FC492 /* creativeWriting.xcdatamodeld */,
+				A42492122B842771009FC492 /* Persistence.swift */,
+				A42492142B84290C009FC492 /* Note+Extension.swift */,
+				A48947F42B842D82006BA518 /* FetchedObjects.swift */,
 				A4D827422B72C1CC00F160EE /* Preview Content */,
 			);
 			path = creativeWriting;
@@ -288,12 +300,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A42492132B842771009FC492 /* Persistence.swift in Sources */,
+				A42492152B84290C009FC492 /* Note+Extension.swift in Sources */,
 				A4D8273F2B72C1CB00F160EE /* ContentView.swift in Sources */,
 				A4D8273D2B72C1CB00F160EE /* creativeWritingApp.swift in Sources */,
 				A4D8276D2B72FCEC00F160EE /* NoteView.swift in Sources */,
+				A42492112B84259A009FC492 /* creativeWriting.xcdatamodeld in Sources */,
 				A4D8276B2B72E08500F160EE /* NoteListView.swift in Sources */,
 				A4C78D9C2B74427200F842D6 /* NoteViewingView.swift in Sources */,
-				A4D827672B72DFB800F160EE /* Note.swift in Sources */,
+				A4D827672B72DFB800F160EE /* Note2.swift in Sources */,
+				A48947F52B842D82006BA518 /* FetchedObjects.swift in Sources */,
 				A4D827692B72E03E00F160EE /* SampleNote.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -624,6 +640,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A424920F2B84259A009FC492 /* creativeWriting.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A42492102B84259A009FC492 /* creativeWriting.xcdatamodel */,
+			);
+			currentVersion = A42492102B84259A009FC492 /* creativeWriting.xcdatamodel */;
+			path = creativeWriting.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A4D827312B72C1CB00F160EE /* Project object */;
 }

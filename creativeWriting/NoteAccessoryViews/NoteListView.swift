@@ -9,9 +9,9 @@
 import SwiftUI
 
 struct NoteListView: View {
-    private var note: Note
+    private var note: Note2
     
-    init(_ note: Note) {
+    init(_ note: Note2) {
         self.note = note
     }
         
@@ -29,7 +29,7 @@ struct NoteListView: View {
 
 struct NoteListView_Previews: PreviewProvider {
   static var previews: some View {
-      let sample = Note(title: "What are you thinking about?", body: "Tell me more")
+      let sample = Note2(title: "What are you thinking about?", body: "Tell me more")
       NoteListView(sample)
     }
 }

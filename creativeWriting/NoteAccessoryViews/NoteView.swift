@@ -56,7 +56,7 @@ struct NoteView: View {
     }
     // MARK: Will come back to this to store the note.
     private func saveNote() {
-        samples.contents.append(Note(title: inputTitle,
+        samples.contents.append(Note2(title: inputTitle,
                                      body: inputBody,
                                      dateCreated: Date.now
                                      ))
