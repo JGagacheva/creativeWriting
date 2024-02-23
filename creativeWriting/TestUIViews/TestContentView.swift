@@ -8,6 +8,28 @@
 import SwiftUI
 
 struct TestContentView: View {
+    
+    
+    var body: some View {
+        ZStack {
+            gradient
+            VStack {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 20.0).frame(width: 350, height: 200)
+                    Text("Journal Logs")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundStyle(.white).opacity(0.9)
+                        .frame(alignment: .topLeading)
+                }
+                ListView()
+            }
+        }
+        
+    }
+}
+
+struct ListView: View {
     // MARK: - Managed Data
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Note.timeStamp,
@@ -18,26 +40,25 @@ struct TestContentView: View {
     //MARK: - UI vars
     
     private let color = Color.gray.opacity(0.5)
-    
     var body: some View {
         GeometryReader { geometry in
-            ZStack {
-                gradient
+//            ZStack {
+//                gradient
                 ScrollView(showsIndicators: false) {
                     ForEach(notes, id: \.self) { note in
                         VStack {
-                            SubView(note.title ?? "", note.body ?? "")
+                            ListSubView(note.title ?? "", note.body ?? "")
                         }
                         .frame(width: geometry.size.width * 0.9)
                     }
                 }
-            }
+                .padding([.leading, .trailing], 20)
+//            }
         }
-        
     }
 }
 
-struct SubView: View {
+struct ListSubView: View {
     @State var isExpanded = false
     private let color = Color.gray.opacity(0.5)
     let sampleTitle: String
