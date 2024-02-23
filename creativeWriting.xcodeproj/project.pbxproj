@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A42492112B84259A009FC492 /* creativeWriting.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A424920F2B84259A009FC492 /* creativeWriting.xcdatamodeld */; };
 		A42492132B842771009FC492 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42492122B842771009FC492 /* Persistence.swift */; };
+		A44B6B962B89012700F4D52E /* ListSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B6B952B89012700F4D52E /* ListSubView.swift */; };
+		A44B6B982B8904AA00F4D52E /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B6B972B8904AA00F4D52E /* ListView.swift */; };
 		A44D60572B86DDB500A65E3C /* ExpandedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44D60562B86DDB500A65E3C /* ExpandedView.swift */; };
 		A46885252B88106F00303BB3 /* TestContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46885242B88106F00303BB3 /* TestContentView.swift */; };
 		A48947F52B842D82006BA518 /* FetchedObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48947F42B842D82006BA518 /* FetchedObjects.swift */; };
@@ -48,6 +50,8 @@
 /* Begin PBXFileReference section */
 		A42492102B84259A009FC492 /* creativeWriting.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = creativeWriting.xcdatamodel; sourceTree = "<group>"; };
 		A42492122B842771009FC492 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		A44B6B952B89012700F4D52E /* ListSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSubView.swift; sourceTree = "<group>"; };
+		A44B6B972B8904AA00F4D52E /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		A44D60562B86DDB500A65E3C /* ExpandedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedView.swift; sourceTree = "<group>"; };
 		A46885242B88106F00303BB3 /* TestContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestContentView.swift; sourceTree = "<group>"; };
 		A48947F42B842D82006BA518 /* FetchedObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedObjects.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				A46885242B88106F00303BB3 /* TestContentView.swift */,
+				A44B6B972B8904AA00F4D52E /* ListView.swift */,
+				A44B6B952B89012700F4D52E /* ListSubView.swift */,
 				A4ABE0862B858677008E431F /* TestView.swift */,
 				A44D60562B86DDB500A65E3C /* ExpandedView.swift */,
 			);
@@ -317,12 +323,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A44B6B982B8904AA00F4D52E /* ListView.swift in Sources */,
 				A4ABE0872B858677008E431F /* TestView.swift in Sources */,
 				A42492132B842771009FC492 /* Persistence.swift in Sources */,
 				A4D8273F2B72C1CB00F160EE /* ContentView.swift in Sources */,
 				A4ABE0852B856E0A008E431F /* NoteEditingView.swift in Sources */,
 				A4D8273D2B72C1CB00F160EE /* creativeWritingApp.swift in Sources */,
 				A4D8276D2B72FCEC00F160EE /* NoteView.swift in Sources */,
+				A44B6B962B89012700F4D52E /* ListSubView.swift in Sources */,
 				A46885252B88106F00303BB3 /* TestContentView.swift in Sources */,
 				A42492112B84259A009FC492 /* creativeWriting.xcdatamodeld in Sources */,
 				A44D60572B86DDB500A65E3C /* ExpandedView.swift in Sources */,

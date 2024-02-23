@@ -52,14 +52,14 @@ struct ExpandedView: View {
             HStack {
                 Spacer()
                 Button {
-                    print("toolbar button")
+                    print("delete button")
                 } label: {
-                    Image(systemName: "pencil")
+                    Image(systemName: "ellipsis")
                         .foregroundStyle(.white)
                 }
                 .frame(alignment: .bottomTrailing)
             }
-            .padding([.bottom], 0)
+            .padding([.top], 4)
             
         }
     }
