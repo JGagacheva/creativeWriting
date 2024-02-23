@@ -36,8 +36,8 @@ struct ExpandedView: View {
     @State private var scrollViewContentSize: CGSize = .zero
     
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            VStack {
+        VStack {
+            ScrollView(showsIndicators: false) {
                 Text(sampleBody)
                     .foregroundStyle(.white).opacity(0.9)
                     .background(
@@ -48,22 +48,20 @@ struct ExpandedView: View {
                             return Color.clear
                         }
                     )
-                HStack {
-                    Spacer()
-                    Button {
-                        print("toolbar button")
-                    } label: {
-                        Image(systemName: "pencil")
-                            .foregroundStyle(.white)
-                    }
-                    .frame(alignment: .bottomTrailing)
+            }.frame(maxHeight: scrollViewContentSize.height)
+            HStack {
+                Spacer()
+                Button {
+                    print("toolbar button")
+                } label: {
+                    Image(systemName: "pencil")
+                        .foregroundStyle(.white)
                 }
-                .padding([.bottom], 0)
+                .frame(alignment: .bottomTrailing)
             }
+            .padding([.bottom], 0)
             
-        }.frame(
-            maxHeight: scrollViewContentSize.height
-        )
+        }
     }
 }
 

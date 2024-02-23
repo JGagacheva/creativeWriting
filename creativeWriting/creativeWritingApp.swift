@@ -15,7 +15,7 @@ struct creativeWritingApp: App {
         WindowGroup {
 //            ContentView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-            TestContentView()
+            TestContentView().environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

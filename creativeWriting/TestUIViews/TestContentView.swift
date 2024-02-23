@@ -49,22 +49,20 @@ struct SubView: View {
     }
     
     var body: some View {
-//        GeometryReader { geometry in
-            VStack {
-                FrontView(sampleTitle)
-                if isExpanded {
-                    ExpandedView(sampleBody)
-                }
+        VStack {
+            FrontView(sampleTitle)
+            if isExpanded {
+                ExpandedView(sampleBody)
             }
-            .padding()
-            .transition(.move(edge: .bottom))
-            .background(color.cornerRadius(10.0))
-            .onTapGesture {
-                withAnimation {
-                    isExpanded.toggle()
-                }
+        }
+        .padding()
+        .transition(.move(edge: .bottom))
+        .background(color.cornerRadius(10.0))
+        .onTapGesture {
+            withAnimation {
+                isExpanded.toggle()
             }
-//        }
+        }
     }
 }
 
