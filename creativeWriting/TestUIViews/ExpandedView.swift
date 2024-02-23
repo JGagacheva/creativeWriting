@@ -7,33 +7,14 @@
 
 import SwiftUI
 
-struct FrontView: View {
-    private var sampleTitle: String
-    init(_ sampleTitle: String) {
-        self.sampleTitle = sampleTitle
-    }
-    
-    var body: some View {
-        HStack {
-            Text(sampleTitle)
-                .fontWeight(.bold)
-                .foregroundStyle(.white)
-            Spacer()
-            Text(Date.now.formatted(date: .abbreviated, time: .omitted))
-                .foregroundStyle(.white)
-        }
-    }
-}
-
 struct ExpandedView: View {
+    @State private var scrollViewContentSize: CGSize = .zero
     
     let sampleBody: String
+    
     init(_ sampleBody: String) {
         self.sampleBody = sampleBody
     }
-    
-    
-    @State private var scrollViewContentSize: CGSize = .zero
     
     var body: some View {
         VStack {
@@ -46,11 +27,15 @@ struct ExpandedView: View {
                                 scrollViewContentSize = geo.size
                             }
                             return Color.clear
+//                            return Color.green
                         }
                     )
+                 
             }.frame(maxHeight: scrollViewContentSize.height)
             HStack {
                 Spacer()
+                OptionsView().frame(alignment: .bottomTrailing)
+                /*
                 Button {
                     print("delete button")
                 } label: {
@@ -58,9 +43,21 @@ struct ExpandedView: View {
                         .foregroundStyle(.white)
                 }
                 .frame(alignment: .bottomTrailing)
+                 */
             }
             .padding([.top], 4)
-            
+        }
+    }
+}
+
+struct OptionsView: View {
+    var body: some View {
+        Menu {
+            Button("Delete", action: {})
+            Button("Edit", action: {})
+        } label: {
+            Label("", systemImage: "ellipsis")
+                .foregroundStyle(.white)
         }
     }
 }
