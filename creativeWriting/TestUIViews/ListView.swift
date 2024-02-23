@@ -40,6 +40,12 @@ struct ListView: View {
                                     }
                                 }
                             )
+                            // Scroll custom trasition
+                            .scrollTransition(.animated.threshold(.visible(0.9))) { content, phase in content
+                                    .opacity(phase.isIdentity ? 1 : 0.85)
+                                    .scaleEffect(phase.isIdentity ? 1 : 0.75)
+                                    .blur(radius: phase.isIdentity ? 0 : 3)
+                            }
                         }
                         .frame(width: geometry.size.width * 0.9)
                     }
@@ -51,13 +57,24 @@ struct ListView: View {
 }
 
 struct BannerView: View {
+    
+    @State private var showingSheet = false
+    
     var body: some View {
         AsyncImage(url: URL(string: "https://schoolofplot.com/cdn/shop/articles/how_to_write_cozy_fantasy.jpg?v=1700482778")) { image in
             image.resizable()
                 .aspectRatio(contentMode: .fit) // or .fill
                 .clipShape(.buttonBorder)
+                .onTapGesture {
+                    withAnimation {
+                        showingSheet = true
+                    }
+                }
           } placeholder: {
             ProgressView()
           }
+          .sheet(isPresented: $showingSheet, content: {
+              NavigationStack { NoteView() }
+          })
     }
 }

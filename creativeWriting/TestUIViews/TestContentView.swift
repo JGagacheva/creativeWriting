@@ -8,15 +8,30 @@
 import SwiftUI
 
 struct TestContentView: View {
+    @State private var navigateToNewNote = false
     
     var body: some View {
         ZStack {
             gradient
+            ListView()
             VStack {
-//                BannerView()
-                ListView()
+                Spacer()
             }
             
+        }.safeAreaInset(edge: VerticalEdge.bottom, spacing: 10) {
+            Button {
+                print("New note button pressed!")
+                navigateToNewNote = true
+            } label: {
+                Image(systemName: "plus")
+                    .foregroundStyle(.white)
+            }
+            .padding()
+            .background(Color.black.opacity(0.6))
+            .clipShape(Circle())
+            .sheet(isPresented: $navigateToNewNote, content: {
+                NavigationStack { NoteView() }
+            })
         }
         .preferredColorScheme(.dark)
     }
