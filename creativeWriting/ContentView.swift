@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State private var showingSheet = false
@@ -19,37 +20,33 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-//            FetchedObjects(sortDescriptors: customSortDescriptor()) {
-//                (notes: [Note]) in
-                List {
-                    ForEach(notes, id: \.self) {
-                        note in
-                        NavigationLink(destination: NoteViewingView(note: note)) {
-                            NoteListView(note)
-                        }
-//                        .listRowBackground(gradient)
-                        .listRowSeparator(.hidden)
-                    }.onDelete(perform: deleteNote)
-                }
-            
-                .navigationTitle("Journal Logs")
-//                .background(gradient)
-                .scrollContentBackground(.hidden)
-                .listStyle(.inset)
-                .toolbar {
-                    Button {
-                        showingSheet = true
-                        print("this button will prodice a new note.")
-                    } label: {
-                        Image(systemName: "plus")
+            List {
+                ForEach(notes, id: \.self) {
+                    note in
+                    NavigationLink(destination: NoteViewingView(note: note)) {
+                        NoteListView(note)
                     }
+                    .listRowSeparator(.hidden)
+                }.onDelete(perform: deleteNote)
+            }
+        
+            .navigationTitle("Journal Logs")
+            .scrollContentBackground(.hidden)
+            .listStyle(.inset)
+            .toolbar {
+                Button {
+                    showingSheet = true
+                    print("this button will prodice a new note.")
+                } label: {
+                    Image(systemName: "plus")
                 }
-                .sheet(isPresented: $showingSheet, content: {
-                    NavigationStack { NoteView() }
-                })
-//            }
+            }
+            .sheet(isPresented: $showingSheet, content: {
+                NavigationStack { NoteView() }
+            })
         }
     }
+    
     private func deleteNote(offsets: IndexSet) {
         withAnimation {
             offsets.map {
@@ -66,6 +63,56 @@ struct ContentView: View {
     }
 }
 
+/*
+struct ContentView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Note.timeStamp,
+                                                     ascending: false)],
+                  animation: .default)
+    private var notes: FetchedResults<Note>
+    // MARK: - private vars for UI
+    @State private var showingSheet = false
+    @State private var isExpanded = false
+    private let color = Color.gray.opacity(0.5)
+    @State private var contentSize: CGSize = .zero
+    
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack {
+                gradient
+//                List {
+//                    ForEach(notes, id: \.self) { note in
+//                        FrontView(note)
+//                        if isExpanded {
+//                            ExpandedView(note)
+//                        }
+//                    }
+                    .onTapGesture {
+                        withAnimation {
+                            isExpanded.toggle()
+                        }
+                    }
+                    .listRowBackground(
+                        Capsule()
+                            .fill(color)
+                            .frame(width: geometry.size.width * 0.8)
+                            .padding(.vertical, 1)
+                            .padding(.horizontal, 0)
+                    )
+                    .listRowSeparator(.hidden)
+                }
+                .listStyle(.plain)
+                .padding()
+                .frame(width: geometry.size.width * 0.8)
+                .transition(.move(edge: .bottom))
+                
+               
+            }
+        }
+    }
+}
+ */
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
@@ -74,19 +121,7 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 
-var gradient: some View {
-    LinearGradient(
-        gradient: Gradient(colors: [
-            Color(red: (130.0 / 255.0), green: (109.0 / 255.0), blue: (210.0 / 255.0)),
-            Color(red: (130.0 / 255.0), green: (130.0 / 255.0), blue: (221.0 / 255.0)),
-            Color(red: (131.0 / 255.0), green: (160.0 / 255.0), blue: (238.0 / 255.0))
-        ]),
-        startPoint: .leading,
-        endPoint: .trailing
-    )
-    .flipsForRightToLeftLayoutDirection(false)
-    .ignoresSafeArea()
-}
+
 
 
 
