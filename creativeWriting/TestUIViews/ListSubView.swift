@@ -14,15 +14,21 @@ struct ListSubView: View, Delegate {
     let sampleTitle: String
     let sampleBody: String
     let onDelete: (() -> ())?
+    let onEdit: (() -> ())?
     
-    init(_ sampleTitle: String, _ sampleBody: String, onDelete: (() -> ())?) {
+    init(_ sampleTitle: String, _ sampleBody: String, onDelete: (() -> ())?, onEdit: (() -> ())?) {
         self.sampleTitle = sampleTitle
         self.sampleBody = sampleBody
         self.onDelete = onDelete
+        self.onEdit = onEdit
     }
     
     func deletemeh() {
         onDelete?()
+    }
+    
+    func editMe() {
+        onEdit?()
     }
     
     var body: some View {

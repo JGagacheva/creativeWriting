@@ -82,3 +82,5 @@ struct NoteView_Previews: PreviewProvider {
         NoteView().environmentObject(SampleNote())
     }
 }
+
+

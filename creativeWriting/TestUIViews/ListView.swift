@@ -38,6 +38,8 @@ struct ListView: View {
                                         let nsError = error as NSError
                                         fatalError("Unresolved error \(nsError), \(nsError.userInfo).")
                                     }
+                                }, onEdit: {
+                                    EmptyView()
                                 }
                             )
                             // Scroll custom trasition

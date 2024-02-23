@@ -14,10 +14,6 @@ struct TestContentView: View {
         ZStack {
             gradient
             ListView()
-            VStack {
-                Spacer()
-            }
-            
         }.safeAreaInset(edge: VerticalEdge.bottom, spacing: 10) {
             Button {
                 print("New note button pressed!")
