@@ -7,17 +7,22 @@
 
 import SwiftUI
 
-struct ListSubView: View {
-    // MARK: bind the isExpanded action
+struct ListSubView: View, Delegate {
     @State var isExpanded = false
     
     private let color = Color.gray.opacity(0.5)
     let sampleTitle: String
     let sampleBody: String
+    let onDelete: (() -> ())?
     
-    init(_ sampleTitle: String, _ sampleBody: String) {
+    init(_ sampleTitle: String, _ sampleBody: String, onDelete: (() -> ())?) {
         self.sampleTitle = sampleTitle
         self.sampleBody = sampleBody
+        self.onDelete = onDelete
+    }
+    
+    func deletemeh() {
+        onDelete?()
     }
     
     var body: some View {
@@ -31,7 +36,7 @@ struct ListSubView: View {
             if isExpanded {
                 Divider()
                     .padding(.bottom, 5)
-                ExpandedView(sampleBody)
+                ExpandedView(sampleBody, delegate: self)
             }
         }
         .padding()

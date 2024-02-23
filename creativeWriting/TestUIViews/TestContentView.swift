@@ -12,7 +12,11 @@ struct TestContentView: View {
     var body: some View {
         ZStack {
             gradient
-            ListView()
+            VStack {
+//                BannerView()
+                ListView()
+            }
+            
         }
         .preferredColorScheme(.dark)
     }

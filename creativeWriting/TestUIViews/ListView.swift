@@ -24,9 +24,22 @@ struct ListView: View {
 //            ZStack {
 //                gradient
                 ScrollView(showsIndicators: false) {
+                    BannerView()
                     ForEach(notes, id: \.self) { note in
                         VStack {
-                            ListSubView(note.title ?? "", note.body ?? "")
+                            ListSubView(
+                                note.title ?? "", note.body ?? "",
+                                onDelete: {
+                                    print("We should remove \(note)")
+                                    viewContext.delete(note)
+                                    do {
+                                        try viewContext.save()
+                                    } catch {
+                                        let nsError = error as NSError
+                                        fatalError("Unresolved error \(nsError), \(nsError.userInfo).")
+                                    }
+                                }
+                            )
                         }
                         .frame(width: geometry.size.width * 0.9)
                     }
@@ -34,5 +47,17 @@ struct ListView: View {
                 .padding([.leading, .trailing], 20)
 //            }
         }
+    }
+}
+
+struct BannerView: View {
+    var body: some View {
+        AsyncImage(url: URL(string: "https://schoolofplot.com/cdn/shop/articles/how_to_write_cozy_fantasy.jpg?v=1700482778")) { image in
+            image.resizable()
+                .aspectRatio(contentMode: .fit) // or .fill
+                .clipShape(.buttonBorder)
+          } placeholder: {
+            ProgressView()
+          }
     }
 }

@@ -3,17 +3,23 @@
 //  creativeWriting
 //
 //  Created by Jana Gagacheva on 2/21/24.
-//
+//  MARK: This view representes the part of the note that is displayed after the note is expanded. It also contains the menu that displays when the ellipsis button is clicked.
 
 import SwiftUI
+
+protocol Delegate {
+    func deletemeh()
+}
 
 struct ExpandedView: View {
     @State private var scrollViewContentSize: CGSize = .zero
     
     let sampleBody: String
+    let delegate: Delegate?
     
-    init(_ sampleBody: String) {
+    init(_ sampleBody: String, delegate: Delegate? = nil) {
         self.sampleBody = sampleBody
+        self.delegate = delegate
     }
     
     var body: some View {
@@ -34,26 +40,26 @@ struct ExpandedView: View {
             }.frame(maxHeight: scrollViewContentSize.height)
             HStack {
                 Spacer()
-                OptionsView().frame(alignment: .bottomTrailing)
-                /*
-                Button {
-                    print("delete button")
-                } label: {
-                    Image(systemName: "ellipsis")
-                        .foregroundStyle(.white)
-                }
-                .frame(alignment: .bottomTrailing)
-                 */
+                OptionsMenuView(delegate: delegate)
+                    .frame(alignment: .bottomTrailing)
             }
             .padding([.top], 4)
         }
     }
 }
 
-struct OptionsView: View {
+struct OptionsMenuView: View {
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Note.timeStamp, ascending: false)], animation: .default)
+    private var notes: FetchedResults<Note>
+    let delegate: Delegate?
+    
     var body: some View {
         Menu {
-            Button("Delete", action: {})
+            Button("Delete", action: {
+                delegate?.deletemeh()
+            })
             Button("Edit", action: {})
         } label: {
             Label("", systemImage: "ellipsis")

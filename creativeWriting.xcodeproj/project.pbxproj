@@ -108,8 +108,8 @@
 				A44B6B972B8904AA00F4D52E /* ListView.swift */,
 				A44B6B952B89012700F4D52E /* ListSubView.swift */,
 				A4ABE0862B858677008E431F /* TestView.swift */,
-				A44D60562B86DDB500A65E3C /* ExpandedView.swift */,
 				A44B6B992B8905D100F4D52E /* FrontView.swift */,
+				A44D60562B86DDB500A65E3C /* ExpandedView.swift */,
 			);
 			path = TestUIViews;
 			sourceTree = "<group>";
