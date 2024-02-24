@@ -49,24 +49,3 @@ struct ExpandedView: View {
     }
 }
 
-struct OptionsMenuView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Note.timeStamp, ascending: false)], animation: .default)
-    private var notes: FetchedResults<Note>
-    
-    let delegate: Delegate?
-    
-    var body: some View {
-        
-        Menu {
-            Button("Delete", action: {
-                delegate?.deletemeh()
-            })
-            Button("Edit", action: { })
-        } label: {
-            Label("", systemImage: "ellipsis")
-                .foregroundStyle(.white)
-        }
-    }
-}
-
