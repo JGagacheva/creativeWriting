@@ -20,11 +20,14 @@ struct NoteView: View {
             VStack {
                 TextField("title",
                           text: $inputTitle,
-                          prompt: Text("Ready to be creative?").foregroundStyle(Color.black.opacity(0.45)))
+                          prompt: Text("Ready to be creative?").foregroundStyle(Color.black.opacity(0.45)),
+                          axis: .vertical
+                )
                     .font(.largeTitle)
                     .fontWeight(.medium)
                     .foregroundStyle(.white)
                     .multilineTextAlignment(.center)
+                    .padding([.bottom, .leading, .trailing])
                 
                 TextEditor(text: $inputBody)
                     .font(.body)

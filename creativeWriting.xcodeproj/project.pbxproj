@@ -55,7 +55,7 @@
 		A44B6B952B89012700F4D52E /* ListSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSubView.swift; sourceTree = "<group>"; };
 		A44B6B972B8904AA00F4D52E /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		A44B6B992B8905D100F4D52E /* FrontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontView.swift; sourceTree = "<group>"; };
-		A44B6B9B2B8960A300F4D52E /* EditingNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditingNoteView.swift; path = creativeWriting/TestUIViews/EditingNoteView.swift; sourceTree = "<group>"; };
+		A44B6B9B2B8960A300F4D52E /* EditingNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingNoteView.swift; sourceTree = "<group>"; };
 		A44D60562B86DDB500A65E3C /* ExpandedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedView.swift; sourceTree = "<group>"; };
 		A45986E72B898839006DE178 /* OptionsMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsMenuView.swift; sourceTree = "<group>"; };
 		A46885242B88106F00303BB3 /* TestContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestContentView.swift; sourceTree = "<group>"; };
@@ -114,6 +114,7 @@
 				A44D60562B86DDB500A65E3C /* ExpandedView.swift */,
 				A45986E72B898839006DE178 /* OptionsMenuView.swift */,
 				A4D8276C2B72FCEC00F160EE /* NoteView.swift */,
+				A44B6B9B2B8960A300F4D52E /* EditingNoteView.swift */,
 			);
 			path = TestUIViews;
 			sourceTree = "<group>";
@@ -139,7 +140,6 @@
 		A4D827302B72C1CB00F160EE = {
 			isa = PBXGroup;
 			children = (
-				A44B6B9B2B8960A300F4D52E /* EditingNoteView.swift */,
 				A4D8273B2B72C1CB00F160EE /* creativeWriting */,
 				A4D8274C2B72C1CC00F160EE /* creativeWritingTests */,
 				A4D827562B72C1CC00F160EE /* creativeWritingUITests */,

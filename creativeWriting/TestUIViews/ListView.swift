@@ -20,6 +20,7 @@ struct ListView: View {
     
     private let color = Color.gray.opacity(0.5)
     @State var editingNoteID: NSManagedObjectID? = nil
+
     
     var body: some View {
         let isSheetVisible: Binding<Bool> = .init {
@@ -34,11 +35,10 @@ struct ListView: View {
         }
 
         GeometryReader { geometry in
-//            ZStack {
-//                gradient
+            ScrollViewReader { reader in
                 ScrollView(showsIndicators: false) {
                     BannerView()
-                    ForEach(notes, id: \.self) { note in
+                    ForEach(Array(notes.enumerated()), id: \.offset) { index, note in
                         VStack {
                             ListSubView(
                                 note.title ?? "", note.body ?? "",
@@ -52,26 +52,18 @@ struct ListView: View {
                                         fatalError("Unresolved error \(nsError), \(nsError.userInfo).")
                                     }
                                 }, onEdit: {
-                                    // This updates the state of the view
-                                    // and sets editingNoteID to note.objectID
-                                    // which causes the view to update
-                                    // and then, when the fire nation attacked…
-                                    // the isSheetVisible is re-evaluated
-                                    // by .sheet(isPresented: isSheetVisible)
-                                    // which returns true, so the sheet shows up.
-                                    //
-                                    // 100 years passed, and the sheet called the
-                                    // set function on the binding.
-                                    // but I believe, the binding is ready… to save the world.
+                                    // This updates the state of the view and sets editingNoteID to note.objectID which causes the view to update.
                                     editingNoteID = note.objectID
-                                }
+                                },
+                                id: index,
+                                proxy: reader
                             )
                             // Scroll custom trasition
-                            .scrollTransition(.animated.threshold(.visible(0.9))) { content, phase in content
-                                    .opacity(phase.isIdentity ? 1 : 0.85)
-                                    .scaleEffect(phase.isIdentity ? 1 : 0.75)
-                                    .blur(radius: phase.isIdentity ? 0 : 3)
-                            }
+//                            .scrollTransition(.animated.threshold(.visible(0.9))) { content, phase in content
+//                                    .opacity(phase.isIdentity ? 1 : 0.85)
+//                                    .scaleEffect(phase.isIdentity ? 1 : 0.75)
+//                                    .blur(radius: phase.isIdentity ? 0 : 1)
+//                            }
                         }
                         .frame(width: geometry.size.width * 0.9)
                     }
@@ -87,7 +79,7 @@ struct ListView: View {
                         }
                     }
                 })
-//            }
+            }
         }
     }
 }
@@ -114,3 +106,19 @@ struct BannerView: View {
           })
     }
 }
+
+
+/*
+ onEdit:
+ This updates the state of the view
+ and sets editingNoteID to note.objectID
+ which causes the view to update
+ and then, when the fire nation attacked…
+ the isSheetVisible is re-evaluated
+ by .sheet(isPresented: isSheetVisible)
+ which returns true, so the sheet shows up.
+ 
+ 100 years passed, and the sheet called the
+ set function on the binding.
+ but I believe, the binding is ready… to save the world.
+ */

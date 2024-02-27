@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ListSubView: View, Delegate {
     @State var isExpanded = false
+    var id: Int
+    var proxy: ScrollViewProxy
     
     private let color = Color.gray.opacity(0.5)
     let sampleTitle: String
@@ -16,11 +18,13 @@ struct ListSubView: View, Delegate {
     let onDelete: (() -> ())?
     let onEdit: (() -> ())?
     
-    init(_ sampleTitle: String, _ sampleBody: String, onDelete: (() -> ())?, onEdit: (() -> ())?) {
+    init(_ sampleTitle: String, _ sampleBody: String, onDelete: (() -> ())?, onEdit: (() -> ())?, id: Int, proxy: ScrollViewProxy) {
         self.sampleTitle = sampleTitle
         self.sampleBody = sampleBody
         self.onDelete = onDelete
         self.onEdit = onEdit
+        self.id = id
+        self.proxy = proxy
     }
     
     func deletemeh() {
@@ -37,6 +41,7 @@ struct ListSubView: View, Delegate {
                 .onTapGesture {
                     withAnimation {
                         isExpanded.toggle()
+                        proxy.scrollTo(id, anchor: .bottom)
                     }
                 }
             if isExpanded {
