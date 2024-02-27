@@ -28,9 +28,9 @@ struct TestContentView: View {
             .clipShape(Circle())
             .sheet(isPresented: $navigateToNewNote, content: {
                 NavigationStack {
-                    let newNote = Note(context: viewContext)
-                    EditingNoteView(newNote)
-//                    NoteView()
+//                    let newNote = Note(context: viewContext)
+//                    EditingNoteView(newNote)
+                    NoteView()
                 }
             })
         }
