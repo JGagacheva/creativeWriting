@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TestContentView: View {
+    @Environment(\.managedObjectContext) private var viewContext
     @State private var navigateToNewNote = false
     
     var body: some View {
@@ -26,7 +27,11 @@ struct TestContentView: View {
             .background(Color.black.opacity(0.6))
             .clipShape(Circle())
             .sheet(isPresented: $navigateToNewNote, content: {
-                NavigationStack { NoteView() }
+                NavigationStack {
+                    let newNote = Note(context: viewContext)
+                    EditingNoteView(newNote)
+//                    NoteView()
+                }
             })
         }
         .preferredColorScheme(.dark)
