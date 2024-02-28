@@ -83,7 +83,6 @@ struct ListView: View {
         }
     }
 }
-
 struct BannerView: View {
     
     @State private var showingSheet = false

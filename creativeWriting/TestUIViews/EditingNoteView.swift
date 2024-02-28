@@ -41,16 +41,18 @@ struct EditingNoteView: View {
                 .scrollContentBackground(.hidden)
                 .padding(.all)
                 .autocorrectionDisabled(true)
-            Spacer()
-            Button(action: {
-                saveEdits()
-                print("The Save button has been pressed.")
-            }, label: {
-                Text("Save")
-                    .font(.title3)
-                    .foregroundStyle(.white)
-            })
+                .onChange(of: note.body) { saveEdits() }
         }
+        .background(Color.black.opacity(0.75))
+        .toolbar {
+            Button {
+                print("This is where an api call will be made.")
+            } label: {
+                Image(systemName: "sparkles")
+                    .foregroundStyle(.white)
+            }
+        }
+        
     }
     private func saveEdits() {
         withAnimation {
