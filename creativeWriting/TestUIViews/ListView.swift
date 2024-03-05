@@ -75,7 +75,7 @@ struct ListView: View {
                            let editingNote = try? viewContext.existingObject(with: editingNoteID) as? Note {
                             EditingNoteView(editingNote)
                         } else {
-                            Text("Unable to edit note. Sorry fam.")
+                            Text("Unable to edit note. Sorry.")
                         }
                     }
                 })

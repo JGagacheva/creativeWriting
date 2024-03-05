@@ -15,8 +15,15 @@ extension Binding {
 }
 
 struct EditingNoteView: View {
+
     @ObservedObject var note: Note
     @Environment(\.managedObjectContext) private var viewContext
+    @FocusState private var focusedField: FocusedField?
+    
+    @State var saveNote: Bool = false
+    enum FocusedField {
+        case title, body
+    }
     
     init(_ note: Note) {
         self.note = note
@@ -34,14 +41,27 @@ struct EditingNoteView: View {
             .foregroundStyle(.white)
             .multilineTextAlignment(.center)
             .padding([.bottom, .leading, .trailing])
+            .focused($focusedField, equals: .title)
             
-            TextEditor(text: $note.body.toUnwrapped(defaultValue: "Tell me more..."))
+//            TextEditor(text: $note.body.toUnwrapped(defaultValue: "Tell me more..."))
+            TextEditor(text: $note.body.toUnwrapped(defaultValue: ""))
                 .font(.body)
                 .foregroundStyle(.white)
                 .scrollContentBackground(.hidden)
                 .padding(.all)
                 .autocorrectionDisabled(true)
-                .onChange(of: note.body) { saveEdits() }
+                .focused($focusedField, equals: .body)
+                .onChange(of: note.body) { 
+//                    saveEdits()
+                    saveNote = true
+                } //save new note if there is any body user input, otherwise delete; this only works after app is closed
+        }
+        .onSubmit {
+            if focusedField == .title {
+                focusedField = .body
+            } else {
+                focusedField = nil
+            }
         }
         .background(Color.black.opacity(0.75))
         .toolbar {

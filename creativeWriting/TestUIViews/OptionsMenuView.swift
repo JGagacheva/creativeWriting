@@ -27,6 +27,7 @@ struct OptionsMenuView: View {
             Button("Edit", action: {
                 delegate?.editMe()
             })
+            Button("Extend", action: {})
         } label: {
             Label("", systemImage: "ellipsis")
                 .foregroundStyle(.white)
