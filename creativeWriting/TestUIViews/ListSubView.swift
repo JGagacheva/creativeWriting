@@ -14,13 +14,15 @@ struct ListSubView: View, Delegate {
     
     private let color = Color.gray.opacity(0.5)
     let sampleTitle: String
+    let sampleDate: Date
     let sampleBody: String
     let onDelete: (() -> ())?
     let onEdit: (() -> ())?
     
-    init(_ sampleTitle: String, _ sampleBody: String, onDelete: (() -> ())?, onEdit: (() -> ())?, id: Int, proxy: ScrollViewProxy) {
+    init(_ sampleTitle: String, _ sampleBody: String, sampleDate: Date, onDelete: (() -> ())?, onEdit: (() -> ())?, id: Int, proxy: ScrollViewProxy) {
         self.sampleTitle = sampleTitle
         self.sampleBody = sampleBody
+        self.sampleDate = sampleDate
         self.onDelete = onDelete
         self.onEdit = onEdit
         self.id = id
@@ -37,7 +39,7 @@ struct ListSubView: View, Delegate {
     
     var body: some View {
         VStack {
-            FrontView(sampleTitle)
+            FrontView(sampleTitle, sampleDate: sampleDate)
                 .onTapGesture {
                     withAnimation {
                         isExpanded.toggle()

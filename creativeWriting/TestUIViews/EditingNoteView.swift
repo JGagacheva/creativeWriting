@@ -20,7 +20,6 @@ struct EditingNoteView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FocusState private var focusedField: FocusedField?
     
-    @State var saveNote: Bool = false
     enum FocusedField {
         case title, body
     }
@@ -51,10 +50,6 @@ struct EditingNoteView: View {
                 .padding(.all)
                 .autocorrectionDisabled(true)
                 .focused($focusedField, equals: .body)
-                .onChange(of: note.body) { 
-//                    saveEdits()
-                    saveNote = true
-                } //save new note if there is any body user input, otherwise delete; this only works after app is closed
         }
         .onSubmit {
             if focusedField == .title {
@@ -73,16 +68,6 @@ struct EditingNoteView: View {
             }
         }
         
-    }
-    private func saveEdits() {
-        withAnimation {
-            do {
-                try viewContext.save()
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
     }
 }
 

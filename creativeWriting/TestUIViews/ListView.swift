@@ -41,7 +41,8 @@ struct ListView: View {
                     ForEach(Array(notes.enumerated()), id: \.offset) { index, note in
                         VStack {
                             ListSubView(
-                                note.title ?? "", note.body ?? "",
+                                note.title ?? "", note.body ?? "", 
+                                sampleDate: note.timeStamp ?? .distantPast,
                                 onDelete: {
                                     print("We should remove \(note)")
                                     viewContext.delete(note)

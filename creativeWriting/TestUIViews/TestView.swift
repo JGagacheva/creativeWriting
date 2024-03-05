@@ -26,7 +26,7 @@ struct TestView: View {
             ZStack {
                 gradient
                 VStack {
-                    FrontView(sample.title)
+                    FrontView(sample.title, sampleDate: .now)
                     if isExpanded {
                         ExpandedView(sample.body)
                     }

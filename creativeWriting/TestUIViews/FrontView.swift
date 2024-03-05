@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct FrontView: View {
-    private var sampleTitle: String
-    init(_ sampleTitle: String) {
+    private let sampleTitle: String
+    private let sampleDate: Date
+    
+    init(_ sampleTitle: String, sampleDate: Date) {
         self.sampleTitle = sampleTitle
+        self.sampleDate = sampleDate
     }
     
     var body: some View {
@@ -19,7 +22,7 @@ struct FrontView: View {
                 .fontWeight(.bold)
                 .foregroundStyle(.white)
             Spacer()
-            Text(Date.now.formatted(date: .abbreviated, time: .omitted))
+            Text(sampleDate.formatted(date: .abbreviated, time: .omitted))
                 .foregroundStyle(.white)
         }
     }

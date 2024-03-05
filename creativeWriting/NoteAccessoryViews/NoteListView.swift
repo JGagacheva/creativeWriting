@@ -26,7 +26,7 @@ struct NoteListView: View {
             Text(note.title ?? "")
                 .font(.title2)
                 .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
-            Text(note.timeStamp ?? .now, formatter: dateFormatter)
+            Text(note.timeStamp ?? .distantPast, formatter: dateFormatter)
                 .font(.caption)
                 .foregroundColor(.black.opacity(0.85))
         }
